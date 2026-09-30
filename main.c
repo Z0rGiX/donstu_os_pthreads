@@ -23,18 +23,10 @@ int main(void) {
         return EXIT_FAILURE;
     }
 
-    printf("main: pid = %d, opened file: \'output.log\' (fd = %d)\n", getThreadID(), g_fd);
+    write_line(output.log);
 
     // create structs for threads
-    args[0].id  = 1;
-    strcpy(args[0].tag, "First\0");
-    args[1].id  = 2;
-    strcpy(args[1].tag, "Second\0");
-    args[2].id  = 3;
-    strcpy(args[2].tag, "Third\0");
-    args[3].id  = 4;
-    strcpy(args[3].tag, "Fourth\0");
-    
+    snprintf(args[i].tag, sizeof9args[i].tag), "T%d", i)  
     // create threads
     for (int i = 0; i < COUNT_THREADS; i++) {
         int rc = pthread_create(&threads[i], NULL, func_thread, &args[i]);
@@ -56,6 +48,6 @@ int main(void) {
     }
     // remove mutex
     pthread_mutex_destroy(&g_lock);
-    printf("main: all threads finished, file closed\n");
+    write_line(output.log);
     return EXIT_SUCCESS;
 }
