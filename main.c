@@ -23,12 +23,13 @@ int main(void) {
         return EXIT_FAILURE;
     }
 
-    write_line(output.log);
+    write_line("output.log");
 
     // create structs for threads
-    snprintf(args[i].tag, sizeof9args[i].tag), "T%d", i)  
+    snprintf(args[i].tag, sizeof(args[i].tag), "T%d", i)  
     // create threads
     for (int i = 0; i < COUNT_THREADS; i++) {
+	sprintf(args[i].tag, "Thread %d", i);
         int rc = pthread_create(&threads[i], NULL, func_thread, &args[i]);
         if (rc != 0) {
             fprintf(stderr, "pthread_create: %s\n", strerror(rc));
@@ -48,6 +49,6 @@ int main(void) {
     }
     // remove mutex
     pthread_mutex_destroy(&g_lock);
-    write_line(output.log);
+    write_line("output.log");
     return EXIT_SUCCESS;
 }
