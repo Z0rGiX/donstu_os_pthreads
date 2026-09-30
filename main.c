@@ -25,8 +25,7 @@ int main(void) {
 
     write_line("output.log");
 
-    // create structs for threads
-    snprintf(args[i].tag, sizeof(args[i].tag), "T%d", i); 
+    // create structs for threads 
     // create threads
     for (int i = 0; i < COUNT_THREADS; i++) {
 	sprintf(args[i].tag, "Thread %d", i);
