@@ -1,0 +1,4 @@
+app
+*.0
+output.log
+trace.log
