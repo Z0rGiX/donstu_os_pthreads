@@ -25,6 +25,7 @@ struct ThreadArgs {
     int  id;
     // something string (with name of thread, f.e.)
     char tag[10];
+    char message[64];
 };
 
 
@@ -44,5 +45,8 @@ void write_line(const char *msg);
 void *func_thread(void *arg);
 
 void about(void);
+extern int g_buffer;
+extern g_has_data;
+extern pthread_cont_t g_cond;
 
 #endif
