@@ -31,7 +31,7 @@ struct ThreadArgs *t = (struct ThreadArgs *)arg;
                  "[tag = %s] pid = %d ppid = %d tid = %d iter = %d\n", t->tag, getpid(), getppid(), getThreadID(), i);
         write_line(buf);
         // imitation of something
-        nanosleep(100 * 1000); /* 100 мс */
+        usleep(100 * 1000); /* 100 мс */
     }
     return NULL;
 }
